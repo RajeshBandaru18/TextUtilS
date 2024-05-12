@@ -21,10 +21,13 @@ const TextForm = (props) => {
     <>
       <div className="container">
         <div className="m-3">
-          <h1>{props.heading}</h1>
+          <h1 style={{color: props.mode == 'light'?'black':'white'}}>{props.heading}</h1>
           <div className="mb-3">
             <textarea
               className="form-control"
+              style={{backgroundColor: props.mode == 'light'?'white':'grey',
+                color: props.mode == 'light'?'black':'white'
+              }}
               onChange={handleonChange}
               id="myBox"
               value={text}
@@ -42,12 +45,12 @@ const TextForm = (props) => {
           </button>
         </div>
       </div>
-      <div className="container m-3">
+      <div className="container m-3" style={{color: props.mode == 'light'?'black':'white'}}>
         <h1>Text Analysis</h1>
         <p>
           {text.split(" ").length}words and {text.length} characters
         </p>
-        <p>{0.008*(text.split(" ").length)}Minutes Read</p>
+        {/* <p>{0.008*(text.split(" ").length)}Minutes Read</p> */}
         <h1>Preview</h1>
         <p>{text}</p>
       </div>
