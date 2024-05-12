@@ -28,7 +28,7 @@ const Navbar = (props) => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
-                {props.about}
+                About
               </a>
             </li>
           </ul>
@@ -55,9 +55,9 @@ Navbar.propTypes = {
   about: PropTypes.string
 }
 
-Navbar.defaultProps = {
-  title: "TextUtilS",
-  about: "About"
-}
+// Navbar.defaultProps = {
+//   title: "TextUtilS",
+//   about: "About"
+// }
 
 export default Navbar;
