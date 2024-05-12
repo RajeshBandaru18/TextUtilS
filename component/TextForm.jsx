@@ -4,14 +4,17 @@ const TextForm = (props) => {
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted into Upper Case", "success")
   };
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted into Lower Case", "success")
   };
   const handleClearClick = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Cleared text Successfully", "success")
   };
   const handleonChange = (event) => {
     setText(event.target.value);
