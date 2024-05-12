@@ -9,6 +9,10 @@ const TextForm = (props) => {
     let newText = text.toLowerCase();
     setText(newText);
   };
+  const handleClearClick = () => {
+    let newText = "";
+    setText(newText);
+  };
   const handleonChange = (event) => {
     setText(event.target.value);
   };
@@ -33,6 +37,9 @@ const TextForm = (props) => {
           <button className="btn mx-3 btn-primary" onClick={handleLoClick}>
             Convert to Lowercase
           </button>
+          <button className="btn mx-1 btn-primary" onClick={handleClearClick}>
+            Clear Text
+          </button>
         </div>
       </div>
       <div className="container m-3">
@@ -40,9 +47,7 @@ const TextForm = (props) => {
         <p>
           {text.split(" ").length}words and {text.length} characters
         </p>
-        <p>
-            {0.008 * text.split(" ").length}Minutes Read
-        </p>
+        <p>{0.008*(text.split(" ").length)}Minutes Read</p>
         <h1>Preview</h1>
         <p>{text}</p>
       </div>
