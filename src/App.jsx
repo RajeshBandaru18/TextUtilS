@@ -3,6 +3,13 @@ import Navbar from "../component/Navbar";
 import TextForm from "../component/TextForm";
 import About from "../component/About";
 import Alert from "../component/Alert";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+} from "react-router-dom";
+// import { Routes } from "react-router-dom/dist";
 function App() {
   const [mode, setMode] = useState("light");
   const [alert, setAlert] = useState(null);
@@ -13,7 +20,7 @@ function App() {
       type: type,
     });
     setTimeout(() => {
-      setAlert(null)
+      setAlert(null);
     }, 1500);
   };
 
@@ -31,18 +38,27 @@ function App() {
 
   return (
     <>
-      {/* <Navbar title="TextUtils" abouttext="About TextUtils"/> */}
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container">
-        <TextForm
-          showAlert={showAlert}
-          title="TextBox"
-          heading="Enter the text to analyze"
-          mode={mode}
-        />
-        {/* <About/> */}
-      </div>
+      <BrowserRouter>
+        {/* <Navbar title="TextUtils" abouttext="About TextUtils"/> */}
+        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <div className="container">
+          <Routes>
+            <Route exact path="/about" element={<About />}>
+              
+            </Route>
+            <Route exact path="/" element={ <TextForm
+                showAlert={showAlert}
+                title="TextBox"
+                heading="Enter the text to analyze"
+                mode={mode}
+              />}>
+            </Route>
+          </Routes>
+
+          {/* <About/> */}
+        </div>
+      </BrowserRouter>
     </>
   );
 }
